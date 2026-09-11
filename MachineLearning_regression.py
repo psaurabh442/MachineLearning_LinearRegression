@@ -37,9 +37,13 @@ plt.show()
 from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
 
+print("Before encoding - Smoker unique values:", data['Smoker'].unique())
+
 data['Sex'] = le.fit_transform(data['Sex'])
 data['Region'] = le.fit_transform(data['Region'])
 data['Smoker'] = le.fit_transform(data['Smoker'])
+
+print("After encoding - Smoker unique values:", data['Smoker'].unique())
 
 print(data.head())
 
