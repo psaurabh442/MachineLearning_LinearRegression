@@ -16,6 +16,21 @@ print(data.info())  #info of columns and rows, data types and memory usage.
 print(data.head())  #Check data and display first few
 print(data.isna().sum())  #will display all columns which doesn't have any null values.
 
+## Exploratory Data Analysis (EDA)
+print("EDA :",data.describe()) ##pandas method that generates summary statistics for every Numeric column in DataFrame
+
+plt.scatter(data['Age'], data['Expenses']) ##draws one dot per row — x-position from data['Age'], y-position from data['Expenses']
+plt.xlabel('Age')  # These are for the chart generated
+plt.ylabel('Expenses')
+plt.title('Age vs Expenses')
+plt.show()
+
+data.groupby('Smoker')['Expenses'].mean().plot(kind='bar')  ##data.groupby('Smoker')-splits your 1500 rows into two groups: all rows where Smoker == 'Yes', and all rows where Smoker == 'No'.
+#['Expenses'].mean() — within each group, takes just the Expenses column and averages it. Result: a tiny 2-row table (one average for smokers, one for non-smokers).
+plt.xlabel('Smoker')  # These are for the chart generated
+plt.ylabel('Mean Expenses')
+plt.title('Average Expenses by Smoker Status')
+plt.show()
 
 #Now Convert all categorical values in columns into numeric value using Label Encoding
 
